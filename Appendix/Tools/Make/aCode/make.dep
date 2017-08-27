@@ -1,0 +1,2 @@
+main.o: src/main.cpp include/GraphicsLib.h
+GraphicsLib.o: include/GraphicsLib.h

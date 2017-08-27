@@ -1,0 +1,34 @@
+Building Woes
+#############
+
+So far, we have been using a simple *Makefile* to manage building our C++ project code. It is pretty nice to have a simple way to manage building, but things are about to get bad as we expand our project.
+
+Our single top level *Makefile* knew where the part were installed:
+
+    * **src**: Human interface code
+    * **lib**: Real project code (C++ class files)
+    * **include**: all class header files
+    * tests**: all class test files
+
+Simple, and fine for small projects. But, what if we want to use a standard tactic in programming, and break up a large project into parts so teams can work on the parts individually. Eventually, all the parts will be combined to build the application, but we might want to build the parts by themselves, with test code to make sure the part works properly.
+
+How do we manage that situation?
+
+
+Subprojects
+***********
+
+In "Real World" (whatever that means) projects, it is common to partition the project into parts that teams can be set up to work on. Those teams will sit down and design an interface between the sub-project and the main application, and then they go off and work on their smaller project. Eventually (or continuously) their work will be integrated into the main project so integration tets can be run. 
+
+The subproject will have its own build system (using *Make* for our work), and when we combine the sub-project code with the main project, the top-level build system should be able to run and build the entire project. 
+
+Hih? How do we make that happen?
+
+This topis has received a lot of attention over the years, and a variety of sulutions have been used. SOme of these worked, well, almost right. Many were based on the idea of a top-level make firing off another *make* within a sub-project directory.
+
+Although this would sem to solve the problem, when files are changed in a sub-project, there may or may not be a need to recompile anything from the top-level code. The problem really comes from the *dependencies* in the overall code structure
+
+Dependencies
+************
+
+Make works by building a data structure called a dependency tree. The overall structure of a project should be something you can figure out by examining all the project code files, and tracking which c++ header files are included 

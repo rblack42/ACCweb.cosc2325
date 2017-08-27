@@ -1,0 +1,236 @@
+..  _Rproject-directories:
+
+Where to Start
+##############
+
+Always begin any project by creating a single directory (folder) under
+which everything about the project and nothing else will be stored.
+Place a ``README`` file in that folder with a brief description of the
+project.
+
+..  note::
+
+    I will show command line sessions where I set up an example project.
+    If you are working on one of the lab projects for this course, this
+    structure is already in place and you will see it when you clone the lab
+    repositories for future labs.
+
+..  code-block:: bash
+
+    $ mkdir cpp_template
+    $ cd cpp_template
+    $ vim README.rst
+
+..  note::
+
+    I always use reStructuredText_ to write my documentation, so my README
+    file ends in ``.rst`` and GitHub_ will format it for me on their server.
+
+Connect to GitHub
+*****************
+
+Any project worth investing time in should end up under Git_ control.
+You do not have to host it on GitHub_ if it is a private project, but
+gaining experience building projects that are :term:`open-source` is a
+good resume builder.
+
+..  note::
+
+    This next step is not necessary if you clone a lab project repository. If
+    you are starting a new project on your own, follow these steps:
+
+Log onto GitHub_, and create a new repository with this project name. I
+am going to assume the project is named ``cpp_template`` on  that
+system. Once that repo is there, back on your workstation, do this:
+
+..  code-block:: bash
+
+    $ git init
+    $ got add .
+    $ git commit -m "initial commit"
+    $ git remote add origin https://github.com/rblack42/cpp_template.git
+    $ git push -u origin master
+
+..  warning::
+
+    Use your own GitHub_ user name n the remote command, and you never
+    use that ``-u`` option on a "push" command except the very first time
+    you push your new project to GitHub_. If you cloned an existing
+    repository, do not use the ``-u`` option at all.
+
+With this step complete, you have a project directory ready to do
+development work!
+
+Create Directories
+******************
+
+The top level project directory never holds program code. Instead, it is
+the management layer and we organize that level by building a few
+standard subdirectories:
+
+    * ``src`` - All code files (except header files) live in this directory.
+
+    *  ``incude`` - all header files will end up here.
+
+    * ``docs`` - project documentation is here
+
+    * ``tests`` - Real programmers test their code!
+
+    * ``lib`` - compiled object files collected into library files go here.
+
+Now that we know where to put things, it it time to figure out how we
+will build (and test) this project. We need to look at the ``make``
+system for more help with that.
+
+
+Project Makefile
+****************
+
+We need one more file to help with this project: a ``Makefile`` that will
+be used to manage all project actions. As you work with ``make``, you
+might add to this file. If you find yourself running additional commands
+often enough, add a new target to this file to do those things more
+easily. I will keep this example down to the essentials.
+
+``Make`` is incredibly powerful, and useful. We need
+to consider the major activities we might need to do as we build our
+project, and provide a way to do those comman tasks quickly. Here is my
+list of actions for a C++ project:
+
+    * ``make`` - build the project code
+
+    * ``make clean`` - delete everything not needed to rebuild the project
+
+    * ``make test`` run all project tests
+
+    * ``make doc`` - build project documentation files
+
+    *  ``make run`` - simple command to run the program
+
+Let's put together our ``Makefile`` in stages, explaining each part as we
+go.
+
+Recursive Makefiles
+*******************
+
+..  warning::
+
+    There is a move to get rid of this kind of setup, but it is
+    currently very common. We are not becoming wizards with ``make`` here,
+    just getting it to help build our projects.
+
+A typical ``Makefile`` structure will place a ``Makefile`` in each major
+subdirectory, and set things up so they can be activated from the top
+level directory. This is called a *recursive Makefile* setup!
+
+Each directory is actually a complete subproject that builds one or more
+products. That part is fairly easy to set up, but making the dependency
+setup work the way we want takes a bit more work.
+
+Here is the command we use in one ``Makefile`` to activate a
+``Makefile`` in a subdirectory:
+
+..  code-block:: bash
+
+    $(MAKE) -C dirname target
+
+We will place targets in the top level ``Makefile`` that run this
+command when needed.
+
+Let's start off with the to-level Makefile we will use. This file is
+used to manage all project activities and builds two programs: the main
+application itself, and the test application, which we will call
+``test_runner``.
+
+..  literalinclude::    code/Makefile
+    :linenos:
+    :lines: 0-5
+
+
+Dependency Analysis
+*******************
+
+The central idea behind ``make`` is tracking dependencies between files.
+One file is dependent on a second one if changing the second file makes
+it necessary to recompile the first file. The most common examples are object
+files which are dependent on the associated source file. 
+
+There are other dependencies we need to pay attention to to properly
+build a complex program. If you use headers, then changes in those
+headers will make it necessary to recompile any file that includes that
+header. Since headers can include other headers, this kind of dependency
+can get really messy. 
+
+Fortunately, the C++ compiler can figure out those header
+dependencies for you. It takes a special invocation of the compiler
+front end (``g++``) to do this, but it is easy to set up.
+
+Here is a reference I am using to set our project up:
+
+    * `Auto-Dependency Generation <http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/>`_
+
+
+In our project setup, we have the primary application files in the
+``src`` directory. Those files will include header files located in the
+``include`` directory. The link step will depend on the library file we
+will place in the ``lib`` directory. That library file is also dependent
+on the header files and the source files in the ``lib`` directory. What
+a mess!
+
+What we want is a system where changing any source file, anywhere in
+this project folder system, will trigger the recompile of only those files
+needed to bring the components up to the current version. 
+Let's show a `dependency tree` for the primary targets of the build:
+
+..  code-block:: text
+
+    +- example (executable)
+    |   |
+    |   +- main.o
+    |   |   |
+    |   |   +- main.cpp
+    |   |       |
+    |   |       +- factorial.h
+    |   |
+    |   + - demolib
+    |           |
+    |           +- factorial.o
+    |                   |
+    |                   +- factorial.cpp
+    |
+    +- test_runner
+            |
+            +- test_main.o ...
+            |       |
+            |       +- test_main.cpp ...
+            |
+            +- demolib
+
+We really have three build products to manage in this setup. The library
+is used by both the primary application and the test code. In this
+setup, we are not testing the main application routine. That part of the
+code needs a different kind of test, and we are not going to cover that
+here. (Application level testis are called a *functional test*. The
+component tests we will be using are called *unit tests*).
+
+..  code-block:: bash
+
+    $ g++ -MM -c main.cpp >  make.deps
+
+If you provide more than one file on this command, all dependencies for
+those files will be listed in the file. To get make to pay attention to
+those dependencies, all we need ot do is get ``make`` to add them to the
+other dependencies in the ``Makefile``. This is easy to do. All we need
+to do is add a line in the ``Makefile`` that included the file produced:
+
+..  code-block:: bash
+
+    include make.dep
+
+SO, building these dependencies is as simple as adding a target that
+asks the compiler to process all subproject source files, with that
+``-MM`` switch added. For now, we will generte this file on demand, not
+automatically. I
+
+
+..  vim:filetype=rst spell:

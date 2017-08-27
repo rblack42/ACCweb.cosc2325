@@ -1,0 +1,16 @@
+# Mac
+.DS_Store
+
+# virtualenv
+_venv
+
+# Python
+*.py[cod]
+
+# Vim
+*~
+*.swp
+
+# Sphinx
+_build
+

@@ -1,0 +1,88 @@
+..  _simple-make-introduction:
+
+Simple Make Introduction
+########################
+
+..  include::   /references.inc
+
+As you work on your skills as a software developer, eventually you reach a point
+where you need more than the traditional :term:`IDE` environment you first
+started using back in school. You really need to understand how large
+applications, composed of many source files, packages of object files called
+libraries, and other things are managed. In addition, it would be nice to know
+what that silly :term:`IDE` was up to when you hit that `build` button on the
+menu.
+
+Actually, most :term:`IDE` systems do not manage all the magic behind the
+scenes themselves. Instead, they use industry-standard tools to do the hard
+work, and simple run those tools for you. Why don't we learn to run them
+ourselves!
+
+History of Make
+***************
+
+Make_ has been around for a long time. It was first introduced to the developer
+community back in 1976 when Stuart Feldman, working at Bell Labs as one of the
+original developers of the UNIX operating system, first released his program.
+Make  has been an integral part of the software scene, at least in the
+Unix/Linux world, ever since. In other worlds (Microsoft for example),
+engineers created their own version of the tool. Some of these versions are
+popular, others not so much. The POSIX_ community has issued a standardization
+document defining a core set of capabilities for tools in this category.
+
+Before Make_ entered the scene, building software was managed by custom scripts
+that issued commands to the operating system, automating an unimaginably
+complex task when the projects grew to hundreds, then thousands of files
+needing processing in complicated ways.
+
+How Make Works
+**************
+
+Most software projects, at least those you work on after school, involve a
+directory system with files and folders scattered into groups of hopefully
+related components. A typical project might have the main application code in
+one directory which depends on one or more libraries of reusable components,
+each in their own sub-directory, together with other directories containing
+project documentation and testing code. 
+
+Make asks the developer to write a simple text file describing how all of these
+parts interrelate, then processes that text file to set up a data structure
+called a :term:`build tree`
+
+Makefile
+========
+
+The control files are found in a project directory and are traditionally named
+`makefile` or `Makefile` (with no extension). 
+
+The Makefile contains a set of build rules which tell the program what commands
+you want to use to build common patterns of code. For instance, a rule can be
+set up to process any C++ application file to construct the associated object
+file. The rule might look like this:
+
+..  code-block::    make
+
+    %.o:    %.cpp
+        g++ -c $< -o $@
+
+I know this looks like magic, but it is actually fairly easy to figure out.
+
+The first line identifies something Make_ calls a `target`. That is the `%.o`
+pattern in this case. This rule explains how to build `object files` (with
+names ending in `.o`() from C++ source files (with names ending in `.cpp`). The
+target pattern is followed by a colon, then we see another pattern called the
+`dependency` pattern. This line says simply this: you can build a file called
+`something.o` out of a file called `something.cpp` using the rules defined
+here.  The "something" is matched by the `%` in the rule. 
+
+Make_ will figure out that it needs to produce a file named `something.o` as
+part of building some program component. With this rule in hand, it will look
+for a file named `something.cpp` and use the rule to process that file to
+produce the required file. 
+
+The second line in this rule is a command Make_ will send to the operating system. After Make_ completes expanding the rule, it will be something you could have type in at the:term:`command prompt` yourself. Make_ has one pecularity that has been in the program since it was invented. The first character in the line must start with a real :kbd:`tab` key, not just a bunch of spaces. 
+
+The magic notation on the second line is explained
+as follows:
+
+    * $< - look for files with named ending in `.cpp` and determine that it needs to create

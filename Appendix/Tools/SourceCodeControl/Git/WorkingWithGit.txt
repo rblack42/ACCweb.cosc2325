@@ -1,0 +1,69 @@
+Working with Git
+################
+
+..  include::   /references.inc
+
+Using Git to manage all of the files you need for any development project is
+reasonably simple, once you get used to thinking about programming in a
+slightly different way. All team members obviously need to have Git_ installed
+in order to share their work with each other. In small teams, developers can
+share their work by having Git_ send things from one machine to another, but
+this approach is clumsy enough that most teams set up a server so all team
+members can work just with the server, and not with each other.
+
+There are two common ways to set up a server. One involves putting the project
+on GitHub_, a public system used by thousands of open-source developers. All
+team members can be set up to access a single GitHub based project, and they
+can keep their local development systems in sync with code kept on the server.
+The only problem with GitHub is that is is free for publicly visible projects,
+and you must pay a monthly fee to keep a project private so only the team
+members can see it.
+
+If the project needs to be kept private, as projects done for school must be,
+GitHub_ is not the right choice. Instead, many teams set up a GitLab_ server
+and use that for the project. GitLab_ is a free system, and setting it up is
+not that difficult. I have set one up for my students on a cheap desktop with
+Linux installed. I make this server visible on the Internet from my home office
+by using a dynamic DNS service so students can access it at any time.  In the
+notes that follow, I will assume that you are going to work on a project for a
+class, and you will be using my GitLab_ server to keep your project code.
+
+Once you have Git_ installed on your development system, and have an account on
+the GitLab_ server, you are ready to start up a development project using these
+new tools. Getting comfortable with all of this takes practice, and requires
+that you pay attention to what you are doing in a new way.
+
+Before we go over how you should work, we need to define a couple of terms:
+
+The Master Copy
+***************
+
+Git_ can be used with no server in sight, but most teams set up a server where
+all project code is kept. This lets every team member see all code in the
+project, and team members update the server copy of the project periodically.
+We call the server copy of the project code the "master copy"
+
+Keep in mind that the server has this "master copy" of all project code must be
+in your mind at all times, and making sure that the server has the right code
+on it is critical to making this system work properly.
+
+The Working Copy
+****************
+
+On any other machine you use for development, you will keep a "working copy" of
+the project code. You can use more than one machine for development as long as
+you remember to make sure the server has everything you do in any work session
+on it before you walk away from the project. The process we will describe here
+will make sure you do not shoot yourself in the foot!
+
+Starting a new project
+**********************
+
+We start up a new project by setting up a home for it on the GitLab_ server. To
+do this, you need to log into the GitLab server using a web browser, and the
+account credentials set up for you on that server.
+
+Look for the small plus sign in the menu bar, and click it to set up a new project. 
+
+..  vim:filetype=rst spell:
+

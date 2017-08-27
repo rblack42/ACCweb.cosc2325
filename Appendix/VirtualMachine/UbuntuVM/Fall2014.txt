@@ -1,0 +1,74 @@
+Fall 2014 Data
+##############
+
+Term dates
+**********
+
+    * Start: August 25
+    * End: December 14
+
+Holidays
+********
+
+    * Thanksgiving: Nov 27, 28
+
+Classroom Sections
+******************
+
+COSC2425-001 (15850)
+====================
+
+    * RGC1 112  MW  12:00pm - 1:20pm    (Lec)
+    * RGC1 112  MW   1:30pm - 2:50pm    (Lab)
+
+..  textbook::
+
+    @Book{cosc24251,
+     author    = "Sivarama P. {Dandamudi}",
+     title     = "Introduction to Assembly Language Programming 
+                  for Pentium and RISC Processors",
+     publisher = "Springer",
+     year      =  2005,
+     address   = "New York",
+     edition   = "Second",
+     ISBN      = "0-387-20636-1"
+    }
+
+COSC2425-002 (15851)
+====================
+
+    * HLC 2412  TTh 6:00pm - 7:20pm     (Lec)
+    * HLC 2412  TTh 7:30pm - 8:50pm
+
+..  textbook::
+
+    @Book{cosc24251,
+     author    = "Sivarama P. {Dandamudi}",
+     title     = "Introduction to Assembly Language Programming 
+                  for Pentium and RISC Processors",
+     publisher = "Springer",
+     year      =  2005,
+     address   = "New York",
+     edition   = "Second",
+     ISBN      = "0-387-20636-1"
+    }
+
+COSC1337-004 (15846)
+====================
+
+    * RGC1 111  MW  3:00pm - 3:55pm   (Lec)
+    * RGC1 116  MW  4:05pm - 5:00pm   (Lab)
+
+COSC1315-005 (15824)
+====================
+
+@Book{farrell
+ author    = "Joyce {Farrell}",
+ title     = "Programming Logic and Design, Introductory",
+ publisher = "Cengage",
+ year      =  2013,
+ address   = "New York",
+ edition   = "eigth"
+ ISBN      = "9781285845777"
+}
+    * DIL

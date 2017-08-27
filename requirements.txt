@@ -1,0 +1,6 @@
+sphinx
+cloud_sptheme
+pyenchant
+sphinxcontrib-spelling==2.1.1
+sphinxcontrib-bibtex==0.3.1
+

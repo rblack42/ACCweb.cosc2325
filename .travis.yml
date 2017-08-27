@@ -1,0 +1,16 @@
+language: python
+
+sudo: false
+addons:
+    apt:
+        packages:
+            - build-essential
+            - enchant
+
+python:
+    - "2.7"
+
+script:
+    - make reqs
+    - make
+    - make test

@@ -1,0 +1,165 @@
+..  _github-instructor-notes:
+
+Managing a Class on GitHub
+##########################
+
+..  include::   /references.inc
+
+GitHub_, one of the most popular services in the open-source community, now
+offers `GitHub Education` which gives instructors a way to set up a class where
+students use their personal GitHub_ accounts to manage their assignments.
+Instructors can choose to make work done for a class totally private, with just
+the instructor and the student having shared access to a Git_ repository, or
+they can make things more open, so students can work together to solve
+problems.
+
+This is a great way to intoduce those students to modern source code management
+tools and procedures. Potential employers of our students have already told us
+that they want our students to get experience working in this way. since that
+will be part of their work pattern when they join the work force. Tools like
+Git_ are an integral part of modern software development, and being able to see
+(non-academic) work done by a potential employee helps in the hiring process.
+
+I have used something like this for several years, now, but I have been using a
+private server I set up with with GitLab_ installed. GitLab_ is an open source
+clone of GitHub_, suitable for use in companies who want more control over
+their projects and a lower cost. Since the GitHub_ Education services are free
+for academic use, it is much easier for instructors to use this system for
+classes. 
+
+I find using Git_, and a service like GitHub_ (or GitLab_) to maintain
+assignment development work is far superior to using something like Blackboard.
+I can see when students start work on an assignment, and can provide instant
+feedback when I spot them doing something wrong, even before they ask for help.
+There are simple ways for a student to declare work done, and notify me that
+the work is ready for grading.  Furthermore, Git_ maintains a complete history
+of how the assignment was completed.
+
+Git_ can be a bit difficult for students when they first get started, but I
+have used it successfully for second and third semester courses involving a lot
+of software development assignments.
+
+GitHub_ Accounts
+****************
+
+To use these new services, all students and the instructor need to set up
+accounts on GitHub_. There are actually two kinds of accounts available,
+although most users only know of one. 
+
+Individual Accounts
+===================
+
+The most common account is the individual account, which has always been free
+for open-source projects. All users of GitHub_ must have individual acocunts to
+set up project repositories. Using these accounts, users can set up unlimited
+public repositories, and there are literally millions of such projects on
+GitHub_ at this time! Individuals can set up private projects, but GitHub_
+charges a fee for such reporitories (I use a few of these on my account).
+
+Instructors should set up their personal accounts, then register as instructors
+by associating their academic email address with the account. You need to
+complete `this form <https://education.github.com/discount_requests/new>`_ to
+get this done. Once it is approved, you can continue setting things up for a
+class.
+
+Organization Accounts
+=====================
+
+The second kind of account is the organization account. One GitHub_ user (the
+instructor in our case) will be the owner of the organization, and can control
+repositories set up in the organization.  Students are "invited" to join the
+organization and repositories they clone from the organization appear in their
+personal accounts, but visibility into those repositories is controlled by the
+instructor. The instructor can allow one student access to a repository, or can
+set up a team of students to work as a group on projects. (Teams can span the
+entire class!)
+
+Creating a Class Organization
+*****************************
+
+Instructors start off by creating a standard GitHub_ organization account where
+private repositories can be set up for the class.
+
+    * `Create an Organization <https://github.com/organizations/new>`_
+
+This form looks scary, since it seems to cost something for more than
+open-source projects. Just select the "Open Source" option, which is free, and
+submit the form. 
+
+Pick a name that helps you manage the each class. I use a pattern like this:
+
+    * ACC-COSC1337-FA15
+
+Each class gets a unique name.
+
+Next, you send an email to GitHub_ Education asking them to expand this
+organiztion to one of the levels seen on the previous form. YOu need to decide
+how many repositories you will need for the class.. At a mnimum, I use one
+repository per student, but it also makes sense to ask for one repository per
+project and student, which can run to several hundred repositories for a
+typical class! 
+
+GitHub_ will approve this request in a few days (but this make take a week or
+more, so plan ahed!) Once you get the approval email, you are ready to set
+things up for the class.
+
+Managing the class
+******************
+
+Set up the Syllabus
+===================
+
+Crete a public repository for the class syllabus. 
+
+Create a Students Team
+======================
+
+Click on "Collaborators" in the organization. Sign in and create a "Students"
+team. Invite all members of the class to join this team. Set the permissions to
+"Read Only"
+
+Once the team is created, invite each member of the class to join the team.
+(Obviously, you need a list of student GitHub_ user names to do this!)
+
+Create an Assignment
+====================
+
+Create a private repository for each assignment. Name that project so students
+can idendify the project.
+
+Set Team Access
+===============
+
+In the assignment project page, select "Collaborators" and add the team you
+want to have access to this project. Each member of that team will see this
+project in their account page and can begin working on that project.
+
+For individual projects, I assign the Students team to the project. For Group
+Projects, I create teams for thos members of the team, and give team access,
+not the entire class.
+
+Class Workflow
+==============
+
+Student will need to use the following approach to completing work for an
+assignment.
+
+    1. Fork the Assignment repository
+
+    2 Clone the repository to their personal development machine.
+
+    3. Modify that clone using normal development procedures. They will use
+       Git_ to update the forked repository using the "add" and "commit"
+       commands.
+
+    4. Push changes to GitHub_ as they work. The more times they do this, the
+       more visibility you have into how the studentd completes this work!
+
+    5. When the assignment is complete, the student will create a "Pull
+       Request". The instructor will get notification of this, and can grade
+       the work.
+
+    6. The project can be further modified if needed, the student can add
+       comments to the "Pull Request" to notify the instructor of these
+       additional changes.
+
