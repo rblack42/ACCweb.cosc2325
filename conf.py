@@ -13,6 +13,7 @@ extensions = [
     'sphinxcontrib.bibtex',
     'sphinxcontrib.spelling',
     'sphinx_exts.circuits',
+    'sphinx.ext.imgmath',
 ]
 templates_path = ['_templates']
 

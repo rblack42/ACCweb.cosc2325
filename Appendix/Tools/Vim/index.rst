@@ -26,6 +26,6 @@ Installation
 
 Installation instructions can be found here:
 
-    * `Installing Vim <http://www.co-pylit.org/general/vim/http://www.co-pylit.org/courses/general/Vim/index.html>`_
+    * `Installing Vim <http://www.co-pylit.org/general/Vim/index.html>`_
 
 

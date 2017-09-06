@@ -14,7 +14,7 @@ Before you do anything, read the Syllabus for the course.
 Orientation Exam
 ================
 
-There is a simple orientation exam on Blakboard, designed to make sure you find
+There is a simple orientation exam on Blackboard, designed to make sure you find
 the syllabus and look it over. Look for it under "Exams" on the left side of
 the BB page. Complete this exam during the first week.
 

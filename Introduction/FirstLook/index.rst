@@ -117,7 +117,7 @@ all of this out. You need to make sure you set up those rules properly. With
 any luck we will end up with a program named ``test`` in the project directory.
 We can run that by doing this:
 
-..  code-block: bash
+..  code-block:: bash
 
     $ ./test
 
@@ -154,7 +154,7 @@ processor, and then process that code to build the executable. If we ask
 (nicely), it will generate the assembly language listing for each file, then
 stop (not building the program).
 
-DO this:
+Do this:
 
 ..  code-block:: bash
 
@@ -178,13 +178,12 @@ simple to figure out how C does output.
 ..  warning::
 
     The code you see in these notes was generated on my Mac. It will be
-    slightly different in your Linux system. I am checking out how the Mac
-    compiler has changed lately.
+    slightly different in your Linux system. Most of the code I write should
+    work on any system. (Windows does need more attention, though).
 
 The code sets up a string in the global data area (outside of any function),
 then passes the address of that string to a standard C routine named
 ``printf``. Look closely at that code above and see if you see those two items.
-The string 
 
 Let's isolate the output actions by doing something simple.
 
@@ -217,6 +216,12 @@ I see the call to ``printf`` in there, and above that there is a reference to
 the message string. This is basically all the code needed to do output: set up
 a few storage areas we will learn about later (called registers) and call the
 ``printf`` routine. That does not seem so hard.
+
+..  note::
+
+    Of course, how ``printf`` gets that message to the screen is a huge mess,
+    and we will not bother figuring that out here. Wait until you have a
+    serious operating system class to learn about that!)
 
 That should be enough for our first look at assembly language. If you get all of
 this running, all of your tools are in fine shape!

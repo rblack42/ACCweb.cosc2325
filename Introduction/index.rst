@@ -8,6 +8,7 @@ Course Introduction
 
     Overview/index
     MindMap
+    are-you-ready-to-code
     HistoryLesson/index
     GettingStarted/index
     FirstLook/index

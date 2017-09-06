@@ -17,6 +17,23 @@ you off to buy another computer!
     software. If you do not have such a system, contact me and I will provide an
     account on a machine you can reach over the Internet that will do the job.
 
+Check Your System
+*****************
+
+If you are using a Windows system, you need to check your processor and make
+sure you can run a 64-bit Virtual Machine. Here is a link to a tool that will
+check this:
+
+    * :download:`/files/VMware-guest64check-5.5.0-18463.exe`
+
+..  warning::
+
+    Even of this tool says your processor is up to the job, you still may run
+    into issues. Some vendors do not activate the required *Virtual Extension*
+    in your system BIOS. You will need to do that yourself, nd on newer
+    systems, this is a problem. Check with me and we will figure out how to get
+    that done on your system.
+
 Install the VM Manager
 **********************
 
@@ -75,7 +92,7 @@ Download the Installer
 ======================
 
 Once again, there is an installer for every major platform. Find the
-appropriate file for your system and download it.
+appropriate file for your system and download it. (Te links are on the Vgrant website).
 
 Install the Program
 ===================
@@ -91,6 +108,7 @@ Test the installation
 This is the neat part.
 
 Make sure you are connected to the Internet.
+
 
 Open up a :term:`command prompt` window and type this:
 

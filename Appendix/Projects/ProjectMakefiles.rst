@@ -112,7 +112,7 @@ You should verify that the ``clean`` command also works as expected.
     $ make clean
     $ ls -l src
 
-This should show both the program and the object files hve been deleted.
+This should show both the program and the object files have been deleted.
 
 This is a good start. We have a simple program being compiled, linked,
 and then run. But we are not done yet
@@ -151,8 +151,8 @@ this library:
 
 ..  literalinclude::    code3/lib/Makefile
 
-The key tool needed to build a libaray is the "archive" program named
-``ar`` on Linux/Mac. WIndow does thing differently, and we will not
+The key tool needed to build a library is the "archive" program named
+``ar`` on Linux/Mac. Windows does thing differently, and we will not
 cover that here.
 
 A "library" is just a single file containing one or more object files.
@@ -224,7 +224,7 @@ that header in both ``main.cpp`` and ``factorial.cpp``. That way the
 compiler will verify that both program files are written properly and
 they will link together just fine!
 
-To set this up, we need another directory, and we need to tewak our
+To set this up, we need another directory, and we need to tweak our
 ``Makefiles`` in both ``src`` and ``lib``:
 
 ..  code-block::    bash

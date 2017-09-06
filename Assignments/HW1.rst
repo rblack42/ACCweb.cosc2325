@@ -25,7 +25,7 @@ Here is the link you need to start this project:
 
     * `Homework Assignment (Section 001) <https://classroom.github.com/a/cDivXZ7D>`_
     
-    * `Homework Assignment (Section 002) <ihttps://classroom.github.com/a/HpZowTuG>`_
+    * `Homework Assignment (Section 002) <https://classroom.github.com/a/HpZowTuG>`_
    
 When you click on this link, you will be asked to "accept" this assignment.
 After a bit, you should be able to navigate to the link you see on that page.

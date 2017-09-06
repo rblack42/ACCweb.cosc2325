@@ -12,7 +12,24 @@ Course Introduction
 
     Introduction/index
     BasicArchitecture/index
+    BasicArchitecture/c-program-teardown
+
+Data
+*************
+
+..  toctree::
+    :maxdepth: 1
+
     DataEncoding/index
+
+Boolen Math
+**************
+
+..  toctree::
+    :maxdepth: 1
+
+    BooleanMath/boolean-algebra
+    BooleanMath/boolean-expressions
 
 Assignments
 ***********

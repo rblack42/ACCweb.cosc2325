@@ -33,11 +33,12 @@ Weekly Assignments
     :maxdepth: 1
 
     week1
-
+    week2
 
 ..  toctree::
     :hidden:
 
     HW1
+    HW2
 
 ..  vim:ft=rst spell:
