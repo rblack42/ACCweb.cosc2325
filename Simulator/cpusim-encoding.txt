@@ -1,0 +1,48 @@
+CPUsim Code Table
+#################
+
+Notes:
+
+    * all register references ar 8 bits
+    * all memory references ar 16 bits
+    * literals can be either 8 or 16 bits
+    * if part of a register is loaded, the other part is unaffected
+
+..  csv-table::
+    :header: Mnem, Code, Dest, Src, RTL
+
+    MOVBRR,1,rd,rs, rd <- rs (8-bits)
+    MOVBRM,2,rd,m16, rd <- [m16] (8-bits)
+    MOVBMR,3,m16,rs, [m16] <- rs (8-bits)
+    MOVBRL,4,rd,l8, rd <- l8
+
+    MOVWRR,5,rd,rs, rd <- r16s (16-bits)
+    MOVWRM,6,rd,m16, rd <- [m16] (16-bits)
+    MOVWMR,7,m16,rs, [m16] <- rs (16-bits)
+    MOVWRL,8,rd,l16, rd <- l16 (16-bits)
+
+    ADDBRR,9,rd,rs, rd <- rd + rs (8-bits)
+    ADDBRM,10,rd,m16,rd <= rd + [m16] (8-bits)
+    ADDBMR,11,m16,rs,[m16] <= [m16] + rs (8-bits)
+
+    ADDWRR,12,rd,rs rd <- rd + rs (16-bits)
+    ADDWRM,13,rd,m16, rd <- rd + [m16] (16-bits)
+    ADDWMR,14,m16,rs, [m16] = [m16] + rs (16 bits)
+
+    SUBBRR,15,rd,rs, rd <- rd - rs (8-bits)
+    SUBBRM,16,rd,m16,rd <= rd - [m16] (8-bits)
+    SUBBMR,17,m16,rs,[m16] <= [m16] - rs (8-bits)
+
+    SUBWRR,18,rd,rs rd <- rd - rs (16-bits)
+    SUBWRM,19,rd,m16, rd <- rd - [m16] (16-bits)
+    SUBWMR,20,m16,rs, [m16] = [m16] - rs (16 bits)
+
+    JMPR,21,rs,,pc <- rs (16 bits)
+    JMPM,22,m16,,pc <- [m16]
+
+    OUTBR,23, rs,, cout <- rs (8-bits)
+    OUTWR,24, rs,, cout <- rs (16-bits)
+
+    HLT, 25,,, system halt
+
+

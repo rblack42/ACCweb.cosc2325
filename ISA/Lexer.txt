@@ -1,0 +1,141 @@
+..  _simple-lexer:
+
+Lexical Analysis
+################
+
+In our current machine, we are asking the machine itself to process the raw
+code file, which is an ASCII document. This is definitely not the way things
+should go. We need to proces that code file with a suitable tool to produce
+something easier for the achine to digest, like binary data, for instance.
+
+Exactly what form that binary data takes is something we can design ourselves,
+since this is our machine!
+
+In our work, we call this tool an "Assembler". Fortunately, we only need a
+simple one.
+
+Code Files
+**********
+
+Our code files are pretty simple. Each line in the file is one instruction. We
+are not expecting blank lines, or lines with more that a single word or number
+on it. We will change that.
+
+In our ``lexer``, we will process each line the way a real compiler does. We
+will read a line from the input file, then scan that line breaking it up into a
+series of "tokens" that we will check to make sure they are legal!
+
+What will we allow?
+
+In programming, formally defining what is legal in a particular language is
+done using something called "Backus- Naur Form" or "BNF" for short.
+
+Here is what a rule for our machine's assembly language would look like in this
+notation:
+
+..  image:: LineSyntax.png
+    :align: center
+
+The "railroad diagram" shows you how this works. Follow the lines to see what
+you can put on a line.
+
+Lexical Analysis
+================
+
+The first thing we need to do is create a routine that will read our line, and
+break it up into those fundamental parts. Let's define what each part can look
+like:
+
+    * Name - initial letter, letters or digits can follow
+
+    * Number - optional minus, followed by digits only
+
+    * Mnemonic - same as name, but we check against a table of defined values
+
+    * Operands (Op1 or Op2) - same as name, but we check against a table of known names
+
+    * Colon - marks a name as a label
+
+    * Comma = separates two operands
+
+    * Comments - anything following a semicolon is ignored
+
+Scanning the Line
+-----------------
+
+With the code line in a ``string`` variable, we can scan it one character at a
+time using logic that looks like this:
+
+..  literalinclude:: code2/lexer1.cpp
+    :linenos:
+
+The neat trick here is that C++ will treat the end of string marker, which is a
+byte with zero in it, as a value of ``false``, so our `while loop` will stop
+when it gets to the end of the line!
+
+Scanning Names
+--------------
+
+The loop we have set up looks at each character in the string. We need to
+examine each character to see what "token" it might be part of.
+
+C++ has a simple set of funtions to classify a single character. Since names
+must start with a letter, we will use the ``isalpha`` function to check the
+first character. If it is a letter, we will use the ``isalnum`` function to
+check for letters or digits after that. Here is the code that will do this:
+
+..  literalinclude::    code2/lexer.cpp
+    :linenos:
+    :lines: 15-27
+
+If the character we start the loop with is a letter, we enter another loop
+looking for either letters or numbers. Each time through this inner look, we
+add the current letter to the `name` string, then grab another letter. We keep
+looping until we hit a character that is not legal in a name. The ``continue``
+statement essentially stops processing for this pass through the outer loop,
+and starts another pass witht he character we last read. 
+
+Study this, it is a good example of doing something a bit complicated, and
+understanding it will help youlater!
+
+Scaning Numbers
+---------------
+
+The process for scanning an integer is identical, except we allow a leading
+minus followed by just digits:
+
+..  literalinclude::    code2/lexer.cpp
+    :linenos:
+    :lines: 28-41
+
+
+Ignoring Comments
+-----------------
+
+If the character is a semicolon, we ignore the rest of the line:
+
+..  literalinclude::    code2/lexer.cpp
+    :linenos:
+    :lines: 48-52
+
+Ignoring Whitespace
+-------------------
+
+We ignore whitespace, which could be either tab characters or spaces by using
+the ``isblank`` function:
+
+..  literalinclude::    code2/lexer.cpp
+    :linenos:
+    :lines: 42-46
+
+Any other chracters should be processed individually. (We may expand this part
+later!)
+
+Just for reference, here is the complete file:
+
+:lexer.cpp:
+
+..  literalinclude::    code2/lexer.cpp
+    :linenos:
+
+In our next lecture, we will design our enhancement to the instruction set.`

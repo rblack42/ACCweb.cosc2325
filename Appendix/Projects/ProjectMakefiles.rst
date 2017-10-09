@@ -55,7 +55,7 @@ Obviously, we are not building anything yet.
 
     The *echo* command is handy when you want to see exactly what
     ``make`` has created when you build a list of file names. You can debug
-    a Makefile using thiese statements
+    a Makefile using these statements
 
 
 In your top-level directory, do this:
@@ -126,7 +126,7 @@ explore another common setup in our project: libraries.
 
 A big program will obviously have a ``main`` function that calls other
 functions somewhere in your code. It is common to organize all of those
-other functions into a set of files that focus on one majot part of the
+other functions into a set of files that focus on one major part of the
 code. We my have several files in one major component, so we might set
 up a subdirectory just for that part of the project.
 
@@ -174,7 +174,7 @@ references. Here is the new ``Makefile`` we need to do that:
     :linenos:
 
 We only added  few lines to identify the directory to search for the
-library, and the nase name of the library needed.
+library, and the base name of the library needed.
 
 Here is a new ``main.cpp`` that calls this new function:
 
@@ -198,7 +198,7 @@ Dependencies
 ************
 
 Make operates by being told how files in your project relate t each
-other. On any "target" line, we list the files neeed to build that
+other. On any "target" line, we list the files need to build that
 target. For instance, we need a ``.cpp`` file to build a ``.o`` file, we
 need ``.o`` files to build the final program.
 
@@ -212,8 +212,8 @@ header files!
 Header Files
 ============
 
-A header file is essentially a contract between two parts of yur
-program. IN our example, we need a contract between ``main.cpp`` which
+A header file is essentially a contract between two parts of your
+program. In our example, we need a contract between ``main.cpp`` which
 is going to call ``factorial`` and ``factorial.cpp`` which is going to
 provide that functions. To make matters worse, these files are in
 different directories.
@@ -357,7 +357,7 @@ add another file that actually does the work!
 ..  literalinclude::    code6/tests/test_factorial.cpp
     :linenos:
 
-The test code is pretty simple. If we hand the ``factorial`` sone
+The test code is pretty simple. If we hand the ``factorial`` some
 parameter, we expect it to produce some known result. The test is just a
 logical expression that should return "true" if the test passes, and
 "false" if it does not! Simple! Any function you write can probably be
@@ -388,7 +388,7 @@ Sanity Check
 ************
 
 As a last step in setting this admittedly  complex project setup, let's
-do an acid test to make sure everything runs as extected:
+do an acid test to make sure everything runs as expected:
 
 ..  code-block:: text
 

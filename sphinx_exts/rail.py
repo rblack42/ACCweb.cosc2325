@@ -13,8 +13,7 @@ except ImportError:
 from docutils import nodes, utils
 from docutils.parsers.rst import directives
 
-from sphinx.util.compat import Directive
-
+from docutils.parsers.rst import Directive
 from sphinx.errors import SphinxError
 from sphinx.util.png import read_png_depth, write_png_depth
 from sphinx.util.osutil import ensuredir, ENOENT

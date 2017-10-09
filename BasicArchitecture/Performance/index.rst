@@ -49,7 +49,7 @@ supercomputer I worked on in the 1970s had a huge refrigeration unit that
 pulled the heat out of the boards in the machine (hundreds of them). That
 worked well enough, but Seymour Cray (see :cite::`dictRef7`), who designed the
 Cray-1, wanted more speed. So the Cray 2, which powered the supercomputer
-center I got to run in the early 1990s, ws cooled by putting the entire machine
+center I got to run in the early 1990s, we cooled by putting the entire machine
 in a canister full of an inert coolant! The whole machine ran while bathed in
 this coolant!
 
@@ -98,7 +98,7 @@ Heat
 As mentioned before, making machines fast makes them hot as well. I have had
 laptop computers I did not ever want in my lap, they just got too hot! Again,
 slowing them down makes them run cooler. A bit part of the design of a chip
-involves making sure the heat generating parts ar spread over enough area that
+involves making sure the heat generating parts are spread over enough area that
 cooling technologies can keep them running cool enough.
 
 That Cray-2 I ran back in 1992 would literally melt if the coolant stopped

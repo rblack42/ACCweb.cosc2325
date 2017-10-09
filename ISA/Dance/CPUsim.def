@@ -1,0 +1,90 @@
+Mnem                  Code  oCode Op1.l  Op1.h  Op2.l  Op2.h
+====                  ===== ===== =====  =====  =====  =====
+HALT                   0    0000   -      -      -      -    halt machine
+
+MOV  Rn, Rn             1    0001   n      -      n      -    move reg byte to reg byte
+MOV  Rn, M[adr]         1    0010   n      -    adr.l  adr.h  move byte from mem
+MOV  Rn, lit            1    0011   n      -    lit.l    -    move byte lit to reg
+MOV  M[adr], Rn         1    0100  adr.l adr.h    n      -    move reg byte to mem
+MOV  M[adr], lit        1    0101  adr.l adr.h   lit.l   -    move lit byte to mem
+MOV  Rn, Rn             1    1001   n      -      n      -    move reg word to reg word
+MOV  Rn, M[adr]         1    1010   n      -    adr.l  adr.h  move word from mem
+MOV  Rn, lit            1    1011   n      -    lit.l    -    move word lit to reg
+MOV  M[adr], Rn         1    1100  adr.l adr.h    n      -    move reg word to mem
+MOV  M[adr], lit        1    1101  adr.l adr.h    n      -    move lit word to mem
+
+MOVI [Rn], Rn           2    0001   n      -      n      -    mov byte from reg to mem indirect
+MOVI Rn, [Rn]           3    0001   n      -      n      -    move byte from mem indirect to reg
+MOVI [Rn], Rn           2    1001   n      -      n      -    mov byte from reg to mem indirect
+MOVI Rn, [Rn]           2    1001   n      -      n      -    move byte from mem indirect to reg
+ 
+ADD  Rn, Rn             3    0001   n      -      n      -    add reg byte to reg byte
+ADD  Rn, M[adr]         3    0010   n      -    adr.l  adr.h  add byte from mem
+ADD  Rn, lit            3    0011   n      -    lit.l    -    add byte lit to reg
+ADD  M[adr], Rn         3    0100  adr.l adr.h    n      -    add reg byte to mem
+ADD  M[adr], lit        3    0101  adr.l adr.h   lit.l   -    add lit byte to mem
+ADD  Rn, Rn             3    1001   n      -      n      -    add reg word to reg word
+ADD  Rn, M[adr]         3    1010   n      -    adr.l  adr.h  add word from mem
+ADD  Rn, lit            3    1011   n      -    lit.l    -    add word lit to reg
+ADD  M[adr], Rn         3    1100  adr.l adr.h    n      -    add reg word to mem
+ADD  M[adr], lit        3    1101  adr.l adr.h    n      -    add lit word to mem
+
+SUB  Rn, Rn             4    0001   n      -      n      -    sub reg byte from reg byte
+SUB  Rn, M[adr]         4    0010   n      -    adr.l  adr.h  sub byte from mem
+SUB  Rn, lit            4    0011   n      -    lit.l    -    sub byte lit from reg
+SUB  M[adr], Rn         4    0100  adr.l adr.h    n      -    sub reg byte from mem
+SUB  M[adr], lit        4    0101  adr.l adr.h   lit.l   -    sub lit byte from mem
+SUB  Rn, Rn             4    1001   n      -      n      -    sub reg word tfrom reg word
+SUB  Rn, M[adr]         4    1010   n      -    adr.l  adr.h  sub word from mem
+SUB  Rn, lit            4    1011   n      -    lit.l    -    sub word lit from reg
+SUB  M[adr], Rn         4    1100  adr.l adr.h    n      -    sub reg word from mem
+SUB  M[adr], lit        4    1101  adr.l adr.h    n      -    sub lit word from mem
+
+OUT  Rn                 5    0110   n      -      -      -    output byte from reg
+OUT  M[adr]             5    0111  adr.l adr.h    -      -    output byte from reg
+OUT  Rn                 5    1110   n      -      -      -    output word from reg
+OUT  M[adr]             5    1111  adr.l adr.h    -      -    output word from memory
+
+INC  Rn                 6    0110   n      -      -      -    increment byte in reg
+INC  M[adr]             6    0111  adr.l adr.h    -      -    increment byte in mem
+INC  Rn                 6    1110   n      -      -      -    increment word in reg
+INC  M[adr]             6    1111  adr.l adr.h    -      -    increment word in mem
+
+DEC  Rn                 7    0110   n      -      -      -    decrement byte in reg
+DEC  M[adr]             7    0111  adr.l adr.h    -      -    decrement byte in mem
+DEC  Rn                 7    1110   n      -      -      -    decrement word in reg
+DEC  M[adr]             7    1111  adr.l adr.h    -      -    decrement word in mem
+
+JMP  I[adr]             8    0111  adr.l adr.h    -      -    branch to instruction at mem
+JZ   I[adr]             9    0111  adr.l adr.l    -      -    branch if zero set
+JNZ  I[adr]            10    0111  adr.l adr.h    -      -    branch if zero not set
+
+Example sum 10 16-bit numbers in mem at 300     
+===========================================
+
+; initilaize registers
+ 0: MOV     WORD R1, 0   ; use R1 to store sum - initialize to zero
+ 1: MOV     BYTE R2, 10  ; use R2 to track count - set to 10
+ 2: MOV     WORD R3, 300 ; Use R3 to point to numbers in memory
+
+; loop over data to generate sum
+ 3: MOVI    WORD R4, [R3]    ; fetch data from memory indirect
+ 4: ADD     WORD R1, R4     ; add contents of R4 to R1
+ 5: ADD     WORD R3, 2      ; update memory pointer
+ 6: DEC     BYTE R2         ; decrenent counter
+ 7: JNZ     3               ; branch to inst 3
+
+ ; display the answer
+ 8: OUT     R1              ; output final result from r3
+
+; stop the machine
+ 9: HALT
+
+Binary code file
+================
+
+ 0: 0x0181, 1, 0, 0
+ 4: 0x0105, 2, 10
+ 7: 0x0181, 3, 0x2c, 0x01
+11: 
+

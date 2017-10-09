@@ -34,11 +34,36 @@ Weekly Assignments
 
     week1
     week2
+    week3
+    week4
+    week5
+    week6
+    week7
+
+Group Project Assignments
+*************************
+
+..  toctree::
+    :maxdepth: 1
+
+    GroupProjects/Teams
+    GroupProjects/GP1
 
 ..  toctree::
     :hidden:
 
     HW1
     HW2
+    HW3
+    HW4/index
+    Lab1/index
+    Lab1/lab1-memory-unit
+    Lab1/diary-of-a-mad-black-programmer
+    Lab1/testing-on-travisci
+    Lab2/lab-projects
+    Lab2/carry-rules
+    Lab2/index
+    Lab3/index
+    Exam1Lab/index
 
 ..  vim:ft=rst spell:

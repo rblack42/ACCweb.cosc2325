@@ -1,0 +1,74 @@
+CPUsim Instruction Set
+######################
+
+Notation
+********
+
+    * R internal register (0-31)
+    * d - destination
+    * s - source
+    * M - address in data memory
+    * L - literal value
+    * [X] - contents of memory at address in X
+
+8-bit Move
+**********
+
+    * MOVBRR   Rd <- Rs
+    * MOVBRM   Rd <- [M]
+    * MOVBMR   [M] <- Rs
+    * MOVBRL  Rd <- Literal
+
+16-bit Move
+***********
+
+    * MOVWRR   Rd <- Rs
+    * MOVWRM   Rd <- [M]
+    * MOVWMR   [M] <- Rs
+    * MOVWRL  Rd <- Literal
+
+8-bit Add
+*********
+
+    * ADDBRR  Rd <- Rd + Rs
+    * ADDBRM  Rd <- Rs + [M]
+    * ADDBMR  [M] <- Rs + [M]
+
+16-bit Add
+**********
+
+    * ADDWRR  Rd <- Rd + Rs
+    * ADDWRM  Rd <- Rs + [M]
+    * ADDWMR  [M] <- Rs + [M]
+
+8-bit Sub
+*********
+
+    * SUBBRR  Rd <- Rd + Rs
+    * SUBBRM  Rd <- Rs + [M]
+    * SUBBMR  [M] <- Rs + [M]
+
+16-bit Sub
+**********
+
+    * SUBWRR  Rd <- Rd + Rs
+    * SUBWRM  Rd <- Rs + [M]
+    * SUBWMR  [M] <- Rs + [M]
+
+Branching
+*********
+
+    * JMPR    PC <- Rs
+    * JMPM    PC <- [M]
+
+Output
+******
+
+    * OUTBR   Display Rs in hex
+    * OUTWR   Display Rs in hex
+
+Halt
+****
+
+    * HLT     top machine
+

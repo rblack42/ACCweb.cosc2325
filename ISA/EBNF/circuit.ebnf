@@ -1,0 +1,35 @@
+circuit     ::= "CIRCUIT" name ";" 
+                part_list wire_list ;
+
+name        ::= letter { letter | digit | "_" } ;
+
+number      ::= digit { digit } ;
+
+parts_list  ::= part { part } ;
+
+wire_list   ::= wire { wire }
+
+part        ::= "PART" "(" name ")" "{" part_def "}" ;
+
+part_def    ::= part_item { part_item } ;
+
+part_item   ::=  type | in_def | out_def | sensitivity | delay ;
+
+type        ::= "TYPE" ":" conponent_name ";" ;
+
+in_def      ::= "IN" ":" name "(" bits ")" ";" ;
+
+out_def     ::= "OUT" ":" name "(" bits ")" ";" ;
+
+sensitivity ::= "SENSITIVE: clock_name ";" ;
+
+delay       ::= "DELAY" ":" number ";"
+
+wire        ::= "WIRE" "(" name "[" bits "]"  ")" "{" source_def dest_def "}" ;
+
+source_def  ::= "SOURCE name "." port ";" ;
+
+dest_def    ::= dest { dest } ;
+
+dest        ::= "DEST name "." port ";" ;
+

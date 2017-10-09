@@ -1,0 +1,4 @@
+; Memn  op1.t op1.s op1.l op1.h  op2.t op2.s op2.l op2.h
+  HALT   000    0     -     -     000    0     -     -
+  MOV    001    0    reg    -     001    0    reg    -
+  MOV    001    1    reg    -     001    1    reg    -

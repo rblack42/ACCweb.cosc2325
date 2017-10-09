@@ -64,7 +64,7 @@ with the other project files (``hello.c`` in this case).
 
 Comments can be included, beginning with the sharp character.
 
-The next line looks like an assignment statement, but it simple sets up a
+The next line looks like an assignment statement, but it simply sets up a
 name for a bunch of text after the equal (and a bit of white space). The text
 continues to the end of the line. 
 
@@ -104,7 +104,7 @@ As before, this produces a list of assembly sourse files we might like to see:
 
     ASMS = hello.s
 
-Again, in a larger project thsi wuld produce a space separated list of assembly
+Again, in a larger project this would produce a space separated list of assembly
 files for the entire project!
 
 
@@ -144,7 +144,7 @@ Here is a new rule that will build the program:
 ..  warning::
 
     See that indented line where the command is shown. The first character on
-    that line must be a ``tab`` character. or ``make`` will complain. This is
+    that line must be a ``tab`` character, or ``make`` will complain. This is
     the quirk! If you are editing in the :term:`virtual machine` with ``vim``,
     you type ``ctrl-v`` followed by the ``tab`` to enter the character assuming
     you are expanding tabs as I recommended.
@@ -153,7 +153,7 @@ This line tells ``make`` how to manufacture ``hello`` out of the dependencies
 listed on the line after the colon. In this file, the ``$(OBJS)`` expands to
 just ``hello.o``. If ``hello.o`` is around, all we need to do is to run the
 command shown, substituting for the ``OBJS`` string. That is exactly what we
-types manually to do the last step. Technically, we just invoked the linker to
+typed manually to do the last step. Technically, we just invoked the linker to
 build our executable file.
 
 Great, but how do we get ``hello.o`` constructed?

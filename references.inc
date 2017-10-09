@@ -8,6 +8,7 @@
 ..  _VB:            https://www.virtualbox.org/
 ..  |WWW|           replace:: World-Wide-Web
 ..  |RST|           replace:: reStructuredText
+..  _RST:           http://docutils.sourceforge.net/rst.html
 
 ..  _ACM:           http://www.acm.org
 ..  _Adafruit:      http://www.adafruit.com/
@@ -22,6 +23,7 @@
 ..  _CodeBlocks:    http://www.codeblocks.org/
 ..  _`Course Technology`:   http://solutions.cengage.com/brands/course-technology/
 ..  _CSS3:          http://www.w3schools.com/css/css3_intro.asp
+..  _Docker:        https://www.docker.com/
 ..  _docutils:      http://docutils.sourceforge.net/
 ..  _Dev-C++:       http://orwelldevcpp.blogspot.com
 ..  _DropBox:       https://www.dropbox.com

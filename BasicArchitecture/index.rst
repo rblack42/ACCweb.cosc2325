@@ -12,5 +12,6 @@ will also get a simple look at how it actually works!
     VonNeumann/index
     Dancing/index
     Performance/index
+    c-program-teardown
 
 ..  vim:filetype=rst spell:

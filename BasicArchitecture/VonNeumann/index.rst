@@ -18,7 +18,7 @@ World War II
 
 Back in 1945 -- World War II was still going on -- John Von Neumann was
 thinking about the whole business of computing. He published his paper as part
-of work to build an electronic computing mchine, and started the world on a
+of work to build an electronic computing machine, and started the world on a
 whole new track.
 
 ..  note::
@@ -88,4 +88,5 @@ and became a handbook for further development of electronic computers.
 
 This beast weighed in in tons, and was huge in all its glory. It was also fragile!
 
+..  vim:ft=rst spell:
 

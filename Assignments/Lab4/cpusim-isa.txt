@@ -1,0 +1,10 @@
+CPUsim Instruction Set Architecture
+###################################
+
+..  cvs-table::
+    :header: Mnemonic, Code, Op1, Op2, RTL
+
+    MOVRR, 1, r8, r8, r8 <- r8
+    MOVRM, 2, r8, m16, r8 <- [m16]
+    MOVMR, 3, m16, r8, [m16] <- r8
+    ADDB, 4, r8, m16, reg <- reg + r8

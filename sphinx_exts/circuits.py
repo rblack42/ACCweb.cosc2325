@@ -71,7 +71,7 @@ class RenderCircuitsImage(object):
             return relfn, outfn
 
         # create temp file for running latex
-        print "Rendering latex image as pdf", outfn
+        #print "Rendering latex image as pdf", outfn
         tempdir = BUILD_TMPDIR
         curpath = os.getcwd()
         os.chdir(tempdir)
@@ -91,7 +91,7 @@ class RenderCircuitsImage(object):
         imagepath = os.path.join(os.path.abspath(self.imagedir),'circuits')
         if not os.path.exists(imagepath):
             os.makedirs(imagepath)
-        print "Copying file to ", imagepath, outfn
+        #print "Copying file to ", imagepath, outfn
         shutil.copyfile(os.path.join(tempdir, "tikz.png"), outfn)
         #shutil.rmtree(tempdir)
         return relfn, outfn

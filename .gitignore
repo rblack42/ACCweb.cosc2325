@@ -13,4 +13,6 @@ _venv
 
 # Sphinx
 _build
+_unpublished
 
+ISA/Assembler/code

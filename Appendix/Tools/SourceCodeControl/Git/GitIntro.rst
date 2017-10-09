@@ -69,7 +69,7 @@ Git_ itself:
 
 ..  warning::
 
-    Do not do this step if you work on the ACC COmputer Studies Lab machines,
+    Do not do this step if you work on the ACC Computer Studies Lab machines,
     only add this setup on your personal development systems.
 
 ..  code-block:: text
@@ -184,7 +184,7 @@ that all copies are synchronized so you can work anywhere. This also works as a
 backup system for your work, something a lot of us neglect to think about until
 something bad happens!
 
-Git_ maintains everything it needs to accomplish its magic in a hiddent
+Git_ maintains everything it needs to accomplish its magic in a hidden
 directory named ``.git`` at the top level of your project directory. You should
 not touch anything in this directory. You can remove Git_ control by deleting
 this directory, should that be necessary for some reason.
@@ -203,7 +203,7 @@ server. For classwork, your projects will be managed as part of an
 to class projects.  You will need an account on the GitHub_ system to use this
 setup.
 
-When using a server to manage your `master copy` it is vital to make sure yu
+When using a server to manage your `master copy` it is vital to make sure you
 never leave a work session before you synchronize your work with that server.
 If you do that faithfully, you will be able to use multiple machines, at
 different locations, to work on your projects. 
@@ -291,8 +291,8 @@ to set up a project named `cosc2425labs`:
     your own project name for that last part. GitHub_ adds `.git` to repository
     names on their system.
 
-    Also note that ``-u`` on the `push` commnd. You only do this one thime, the
-    first time you push your code to the server. Afterthat, eave off that
+    Also note that ``-u`` on the `push` command. You only do this one time, the
+    first time you push your code to the server. After that, eave off that
     option.
 
 Once these commands complete, your local :term:`working copy` knows exactly

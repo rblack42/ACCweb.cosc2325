@@ -1,0 +1,16 @@
+Testing the ALU
+###############
+
+The ALU unit we have constructed is limited to simple *ADD* and **SUB**
+operations. In most machines, these instructions are *unsigned*. If we wish to
+accept s*signed* operations, we need to set up different operations, since the
+rules are different.
+
+For now, we need to deal with *unsigned data only*. That means we can test the
+result to see if it is greater than allowed for each size of operand. 
+
+But, how to de check if the rrsult is too big? A simple scheme is to let our
+simulator code use a higher precision variable that willcapture the sum. If
+that sum exceeeds the maxixmum allowed for the real operand, we mask off the
+extra bits, and set the *carry* flag.
+

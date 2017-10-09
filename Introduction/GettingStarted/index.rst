@@ -30,7 +30,7 @@ check this:
 
     Even of this tool says your processor is up to the job, you still may run
     into issues. Some vendors do not activate the required *Virtual Extension*
-    in your system BIOS. You will need to do that yourself, nd on newer
+    in your system BIOS. You will need to do that yourself, and on newer
     systems, this is a problem. Check with me and we will figure out how to get
     that done on your system.
 

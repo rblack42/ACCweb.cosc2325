@@ -18,7 +18,7 @@ used to this, so we do not change that just because we are studying computer
 systems.
 
 If the number is in some other base, that base is indicated by special
-notation. Once common notation uses a trailing letter to indicate the base:
+notation. One common notation uses a trailing letter to indicate the base:
 
     * (none) - decimal
 
@@ -38,31 +38,14 @@ Other notations are also seen. In C/C++, 0x123 is a hexadecimal notation.
 Converting between Bases
 ************************
 
-To convert between bases, use this simple approach:
-
-Decimal to Binary
-=================
-
-    1. Divide the number by 2, record the result (whole number) and write down the
-       remainder as the right-most digit.
-
-    2. Divide the result from the previous step by 2 and record the result
-       (whole number). Write the remainder to the left of the previous digit
-
-    3. Repeat step 2 until the result is zero.
-
-Decimal to other bases
-======================
-
-The previous scheme will work, but you change the base to the one you are
-working with. Remember to convert the git into the right character
-(hexadecimal) if needed. This is too hard, so I do not do this manually very
-often). COnver to binary first, them move the the required base.
+Converting numbers from one base to another is fairly simple for the bases we
+computer people use:
 
 Binary to Decimal
 =================
 
-This is easy, just create a table of powers of two, and add up the digit values as needed
+This is easy, just create a table of powers of two, and add up the digit values
+as needed
 
 Example:
 
@@ -98,6 +81,58 @@ Example:
 
 The result is 0E4h (remember to add the leading digit in this case!)
 
+To convert between bases, use this simple approach:
+
+Decimal to Binary
+=================
+
+This one takes a bit more work, but this scheme works well, and is easy to
+remember:
+
+    1. Divide the number by 2, record the result (whole number) and write down the
+       remainder as the right-most digit.
+
+    2. Divide the result from the previous step by 2 and record the result
+       (whole number). Write the remainder to the left of the previous digit
+
+    3. Repeat step 2 until the result is zero.
+
+example:
+
+    * 23 (decimal) to binary:
+
+    * 23/2 = 11 r=1 -> 1
+
+    * 11/2 = 5 r=1 -> 11
+
+    * 5/2 = 2 r=1 -> 111
+
+    * 2/2 = 1 r=0 -> 0111
+
+    * 1/2 = 0 r=1 -> 10111
+
+Let's see: (1*16)+(0*8)+(1*4)+(1*2)+(1*1) = 23, so this is correct!
+
+Decimal to Hexadecimal
+======================
+
+The previous scheme will work, but ding by 16 is too hard to do without
+cheating and using a calculator. Instead convert the number to binary and split
+out the bits in groups of 4 (add extra leading zeroes if needed) and use a
+table to pick out the symbol.
+
+Example:
+
+    * 23 (decimal) to hexadecimal
+
+    * binary is 10111 -> 0001 0111 -> 17
+      
+    * Check: (1*16)+(7*1) = 23
+
+(You should be able to create this table of symbols by just counting in binary
+fro 0-15 and writing down the hexadecimal symbols)
+
+
 Hexadecimal to Decimal
 ======================
 
@@ -105,10 +140,10 @@ You could create a table of powers of 16, but why bother!
 
     1. Convert your hex number to binary (using your table of values)
     
-    2 proceed using the binary to decimal scheme to get your result.
+    2. proceed using the binary to decimal scheme to get your result.
 
 What about Negative Numbers?
-============================
+****************************
 
 The sign in your number tells you that this is to be encoded as two's
 compliment form. Create the binary form, and encode it as a hex number if
